@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+    
+    <xs:element name="releve" type="T_RELEVE"/>
+       
+    <xs:complexType name="T_RELEVE">
+        <xs:sequence>
+            <xs:element name="dateReleve" type="xs:date" />
+            <xs:element name="solde" type="xs:integer" />
+            <xs:element name="operations" type="T_OPERATIONS"/>
+        </xs:sequence>
+        <xs:attribute name="RIB" type="xs:string" use="required"></xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="T_OPERATIONS">
+       <xs:sequence>
+           <xs:element name="operation" type="T_OPERATION" maxOccurs="unbounded" />
+       </xs:sequence>
+        <xs:attribute name="dateDebut" type="xs:date" use="required"></xs:attribute>
+        <xs:attribute name="dateFin" type="xs:date" use="required"></xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="T_OPERATION">
+        <xs:attribute name="type">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="CREDIT"/>
+                    <xs:enumeration value="DEBIT"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="date" type="xs:date" use="required"></xs:attribute>
+        <xs:attribute name="montant" type="xs:integer" use="required"></xs:attribute>
+        <xs:attribute name="description" type="xs:string" use="required"></xs:attribute>
+    </xs:complexType>
+
+
+</xs:schema>

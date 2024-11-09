@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE releve SYSTEM "xmlTp1.dtd">
+<releve RIB="000000001">
+    <dateReleve>2024-12-05</dateReleve>
+    <solde>12000</solde>
+    <operations dateDebut="2024-11-01" dateFin="2024-11-30">
+        <operation date="2024-11-15" montant="450" description="Virement"  type="CREDIT"></operation>
+    </operations>
+</releve>
